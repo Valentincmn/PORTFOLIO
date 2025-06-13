@@ -1,0 +1,377 @@
+/* ------------------- RESET CSS DE BASE ------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    user-select: none;
+    cursor: none;
+}
+
+html {
+    font-family: "FONTSPRING DEMO - The Seasons Light";
+    font-size: 16px;
+}
+
+.hide {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+/* ------------------- PAGE 1 : HERO & HEADER ------------------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    user-select: none;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 36px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+    user-select: none;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.nav-list li a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s ease;
+}
+
+
+.nav-list li a:hover::after {
+    width: 100%;
+}
+
+.titre {
+    color: white;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    user-select: none;
+    transform: translate(-50%, -50%);
+    font-size: 10rem;
+    text-transform: uppercase;
+    line-height: 0.73;
+    font-weight: 400;
+    animation: fadeInZoom 7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.7);
+        filter: blur(10px);
+    }
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url('Asset/why.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.77);
+    z-index: 0;
+}
+
+.scrolldown {
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 10px;
+}
+
+/* ------------------- PAGE 2 : ABOUT (Q?) ------------------- */
+.about {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    overflow: hidden;
+    color: white;
+
+}
+
+.about-flex {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.about-left {
+    margin-top: 9%;
+    margin-left: 5%;
+    color: white;
+
+}
+
+.competences-block {
+    margin-top: 11rem;
+    color: white;
+    font-size: 1rem;
+}
+
+.competences-title {
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    font-family: 'Fragment Mono', monospace;
+}
+
+.competences-list {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    font-family: 'Roboto Mono'
+}
+
+.picture-flex {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2.125rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    position: static;
+
+}
+
+.qui-suis-je {
+    margin-top: 2rem;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-family: 'Fragment Mono', monospace;
+
+}
+
+.about-right {
+    max-width: 38rem;
+    letter-spacing: 0.07em;
+    margin: 0 2rem;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    font-family: 'Roboto Mono';
+
+}
+
+.me,
+.londres,
+.vers,
+.lv {
+    width: 12.875rem;
+    height: 15.125rem;
+    border-radius: 0.15625rem;
+}
+
+/* ------------------- PAGE 3 : PROFESSIONAL (P) ------------------- */
+.professional {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('Asset/Parcours.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.professional::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: rgba(0, 0, 0, 0.637);
+}
+
+/* timeline */
+.hr {
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+}
+
+.timeline {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    z-index: 1;
+    font-family: "Afaca", Arial, sans-serif;
+    font-size: 1rem;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.3vh;
+    background: white;
+}
+
+/* Tirets sur la timeline */
+.timeline-marker {
+    position: absolute;
+    top: -1.5vh;
+    width: 0.3vw;
+    height: 3vh;
+    background: white;
+}
+
+.timeline-marker.left {
+    left: 10%;
+}
+
+.timeline-marker.center {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.timeline-marker.right {
+    left: 90%;
+}
+
+.para {
+    position: absolute;
+    color: white;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+/* Texte sur la timeline */
+.para.left {
+    left: 5%;
+    top: -12vh;
+    text-align: left;
+}
+
+.para.center {
+    left: 50%;
+    top: 3.5vh;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.para.right {
+    right: 5%;
+    top: -12vh;
+    text-align: right;
+}
+
+.txt-parcours {
+    position: absolute;
+    top: -30vh;
+    /* Ajuste la valeur selon le rendu souhaité */
+    left: 5%;
+    color: white;
+    font-family: "Fragment Mono", sans-serif;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+/* Style de la Page 4 */
+.formation {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: stretch;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-left,
+.video-right {
+    flex: 1 1 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-left .video,
+.video-right .video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0.5;
+}
