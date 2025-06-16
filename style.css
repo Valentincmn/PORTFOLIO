@@ -55,14 +55,14 @@ header {
 
 .nav {
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
     margin-left: auto;
     user-select: none;
 }
 
 .nav-list {
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
     list-style: none;
 }
 
@@ -153,41 +153,37 @@ header {
     overflow: hidden;
     color: white;
     font-family: "Fragment Mono", sans-serif;
-
+    font-size: 14px;
 }
 
 .about-flex {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    justify-content: space-between;
+
 }
 
 .about-left {
-    margin-top: 9%;
     margin-left: 5%;
     color: white;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding-top: 8rem;
 }
 
-.competences-block {
-    margin-top: 11rem;
-    color: white;
-    font-size: 14px;
-}
+
 
 .competences-title {
     margin-bottom: 2.5rem;
     font-size: 0.875rem;
-
 }
 
 .competences-list {
     display: flex;
     flex-direction: row;
     gap: 3rem;
-
-
 }
 
 .picture-flex {
@@ -200,18 +196,15 @@ header {
     position: static;
     flex-wrap: wrap;
     text-align: center;
-
-
 }
 
 .qui-suis-je {
     position: absolute;
     top: 12vh;
     left: 5%;
-    color: white;
-    font-family: "Fragment Mono", sans-serif;
     text-transform: uppercase;
     font-size: 14px;
+
 
 }
 
@@ -222,15 +215,11 @@ header {
     position: absolute;
     top: 12rem;
     right: 2rem;
-    font-size: 14px;
-
 
 }
 
-.me,
-.londres,
-.vers,
-.lv {
+/* Images du portfolio - style commun */
+.portfolio-img {
     width: 12.875rem;
     height: 15.125rem;
     border-radius: 0.15625rem;
@@ -252,6 +241,9 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
+    font-family: "Fragment Mono", sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 .professional::before {
@@ -314,31 +306,29 @@ header {
 
 .para {
     position: absolute;
-    color: white;
-    font-size: 14px;
     font-style: italic;
     font-weight: 400;
     line-height: normal;
-    text-transform: uppercase;
-    font-family: "Fragment Mono", sans-serif;
+    /* hérite color, font-size, text-transform et font-family du parent .professional */
 }
 
 /* Texte sur la timeline */
 .para.left {
-    right: 30%;
+    left: 5%;
+    top: 35%;
     text-align: left;
 }
 
 .para.center {
     left: 50%;
-    top: 3.5vh;
+    top: 55%;
     transform: translateX(-50%);
     text-align: center;
 }
 
 .para.right {
     right: 5%;
-    top: -12vh;
+    top: 35%;
     text-align: right;
 }
 
@@ -346,23 +336,22 @@ header {
     position: absolute;
     top: 12vh;
     left: 5%;
-    color: white;
-    font-family: "Fragment Mono", sans-serif;
-    text-transform: uppercase;
     font-size: 14px;
+
 }
 
-/* Style de la Page 4 */
+/* Style de la Page 4 - Formation */
 .formation {
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    align-items: stretch;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: black;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
+    color: white;
+    font-family: "Fragment Mono", sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    display: flex;
 }
 
 .video-left,
@@ -373,12 +362,118 @@ header {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: absolute;
+    width: 50%;
+}
+
+.video-left {
+    left: 0;
+}
+
+.video-right {
+    right: 0;
 }
 
 .video-left .video,
 .video-right .video {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 0.6;
+}
+
+.txt-formation {
+    position: absolute;
+    top: 12vh;
+    left: 5%;
+    font-size: 14px;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+.formation-content {
+    position: relative;
+    z-index: 5;
+    padding: 8rem 5% 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+
+}
+
+.formation-subtitle {
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.formation-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    font-size: 14px;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+.formation-options {
+    display: flex;
+    gap: 4rem;
+    align-items: flex-start;
+    position: relative;
+
+}
+
+.formation-options::before {
+    content: '';
+    position: absolute;
+    top: -2rem;
+    left: -100vw;
+    right: -100vw;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.132);
+    z-index: -1;
+}
+
+.option-sisr,
+.option-slam {
+    flex: 1;
+    min-height: 400px;
+    text-transform: uppercase;
+}
+
+.option-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.option-description {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.competences-list-formation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.competences-list-formation li {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.txt-formation {
+    position: absolute;
+    top: 12vh;
+    left: 5%;
+    font-size: 14px;
+    z-index: 10;
+    text-transform: uppercase;
 }
