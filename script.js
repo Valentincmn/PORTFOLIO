@@ -175,3 +175,4 @@ class Loader {
 // Initialiser le loader dès que possible
 new Loader();
 
+

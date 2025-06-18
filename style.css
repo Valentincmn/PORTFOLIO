@@ -1,3 +1,10 @@
+/* ------------------- VARIABLES CSS ------------------- */
+:root {
+    --bg-primary: #000000;
+    --text-primary: #ffffff;
+    --overlay-color: rgba(0, 0, 0, 0.77);
+}
+
 /* ------------------- RESET CSS DE BASE ------------------- */
 * {
     box-sizing: border-box;
@@ -23,12 +30,6 @@ html {
     font-size: 16px;
 }
 
-.hide {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-}
-
 /* ------------------- ÉCRAN DE CHARGEMENT ------------------- */
 .loader {
     position: fixed;
@@ -36,7 +37,7 @@ html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: black;
+    background: var(--bg-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,7 +58,7 @@ html {
 
 .loader-number {
     font-size: 4rem;
-    color: white;
+    color: var(--text-primary);
     font-weight: 300;
     line-height: 1;
     font-family: "Fragment Mono", sans-serif;
@@ -65,7 +66,7 @@ html {
 
 .loader-text {
     font-size: 4rem;
-    color: white;
+    color: var(--text-primary);
     font-weight: 300;
     font-family: "Fragment Mono", sans-serif;
 }
@@ -96,6 +97,7 @@ header {
 
 .nav {
     display: flex;
+    align-items: center;
     gap: 1.25rem;
     margin-left: auto;
     user-select: none;
@@ -108,13 +110,15 @@ header {
 }
 
 .nav-list li a {
-    color: white;
+    color: var(--text-primary);
     font-size: 14px;
     text-decoration: none;
     font-weight: 400;
     position: relative;
     transition: color 0.3s ease;
 }
+
+
 
 .nav-list li a::after {
     content: '';
@@ -123,7 +127,7 @@ header {
     height: 1px;
     bottom: -2px;
     left: 0;
-    background-color: white;
+    background-color: var(--text-primary);
     transition: width 0.3s ease;
 }
 
@@ -133,7 +137,7 @@ header {
 }
 
 .titre {
-    color: white;
+    color: var(--text-primary);
     display: grid;
     justify-content: center;
     align-content: center;
@@ -172,7 +176,7 @@ header {
     content: "";
     position: absolute;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.77);
+    background-color: var(--overlay-color);
     z-index: 0;
 }
 
@@ -181,7 +185,7 @@ header {
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
+    color: var(--text-primary);
     font-size: 10px;
 }
 
@@ -190,9 +194,9 @@ header {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-color: black;
+    background-color: var(--bg-primary);
     overflow: hidden;
-    color: white;
+    color: var(--text-primary);
     font-family: "Fragment Mono", sans-serif;
     font-size: 14px;
 }
@@ -201,7 +205,6 @@ header {
     display: flex;
     flex-direction: column;
     height: 100vh;
-
 }
 
 .about-left {
@@ -213,8 +216,6 @@ header {
     height: 100vh;
     padding-top: 8rem;
 }
-
-
 
 .competences-title {
     margin-bottom: 2.5rem;
@@ -245,8 +246,6 @@ header {
     left: 5%;
     text-transform: uppercase;
     font-size: 14px;
-
-
 }
 
 .about-right {
@@ -256,7 +255,6 @@ header {
     position: absolute;
     top: 12rem;
     right: 2rem;
-
 }
 
 /* Images du portfolio - style commun */
@@ -296,14 +294,6 @@ header {
 }
 
 /* timeline */
-.hr {
-    width: 100%;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    z-index: 1;
-}
-
 .timeline {
     position: absolute;
     top: 50%;
@@ -378,7 +368,6 @@ header {
     top: 12vh;
     left: 5%;
     font-size: 14px;
-
 }
 
 /* Style de la Page 4 - Formation */
@@ -438,8 +427,6 @@ header {
     padding: 8rem 5% 4rem 5%;
     max-width: 1200px;
     margin: 0 auto;
-
-
 }
 
 .formation-subtitle {
@@ -464,7 +451,6 @@ header {
     gap: 4rem;
     align-items: flex-start;
     position: relative;
-
 }
 
 .formation-options::before {
@@ -510,11 +496,86 @@ header {
     margin-bottom: 0.5rem;
 }
 
-.txt-formation {
-    position: absolute;
-    top: 12vh;
-    left: 5%;
-    font-size: 14px;
-    z-index: 10;
+
+/* ------------------- PAGE 5 : CONTACT ------------------- */
+.contact {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Fragment Mono", sans-serif;
+}
+
+.contact-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.contact-left {
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
     text-transform: uppercase;
+}
+
+.contact-title {
+    font-size: 10vw;
+    margin-bottom: 2rem;
+    line-height: 0.8;
+
+}
+
+.contact-description {
+    font-size: 0.73vw;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 37.5rem;
+    padding-left: 4%;
+
+}
+
+.contact-links {
+    display: flex;
+    gap: 6rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.contact-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 0.73vw;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s ease;
+    text-transform: uppercase;
+}
+
+.contact-btn:hover {
+    border-bottom: 1px solid white;
+}
+
+.contact-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.contact-image {
+    height: 100vh;
+    width: 70%;
+    object-fit: cover;
+    object-position: center;
 }
