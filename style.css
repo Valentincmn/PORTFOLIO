@@ -799,6 +799,7 @@ header {
     outline: none;
     transition: border-color 0.3s ease;
     text-transform: uppercase;
+    cursor: none;
 }
 
 .contact-form input::placeholder,
