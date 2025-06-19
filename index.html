@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Asset/icon.png">
     <title>VCMN</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,10 +33,10 @@
             <!-- Menu de navigation avec les différentes sections -->
             <nav class="nav">
                 <ul class="nav-list">
-                    <li><a href="#about" class="nav-q">Q?</a></li>
-                    <li><a href="#professional" class="nav-p">P</a></li>
-                    <li><a href="#formation" class="nav-f">F</a></li>
-                    <li><a href="">E</a></li>
+                    <li><a href="#about">Q?</a></li>
+                    <li><a href="#professional">P</a></li>
+                    <li><a href="#formation">F</a></li>
+                    <li><a href="#projet">PR</a></li>
                     <li><a href="#contact">C</a></li>
                 </ul>
             </nav>
@@ -144,56 +145,115 @@
                 <div class="option-sisr">
                     <h3 class="option-title">Option SISR</h3>
                     <p class="option-description">
-                        La spécialisation SISR est centrée sur l'administration des infrastructures réseaux et systèmes.
-                        Les étudiants apprendront à déployer et maintenir des systèmes, à administrer des serveurs et à
-                        assurer la sécurité des données au sein des entreprises.
+                        L'option Solutions d'Infrastructures, Systèmes et Réseaux forme des professionnels des réseaux
+                        et équipements Informatiques (installation, maintenance, sécurité). En sortant d'un BTS SIO avec
+                        l'option SISR, vous serez en capacité de gérer et d'administrer le réseau d'une société et
+                        d'assurer sa sécurité ainsi que sa maintenance.
+
                     </p>
 
                     <ul class="competences-list-formation">
-                        <li>• Administration de serveurs Windows Server et Linux</li>
-                        <li>• Configuration de services réseaux (DNS, DHCP, Active Directory)</li>
-                        <li>• Mise en place de solutions de virtualisation</li>
-                        <li>• Sécurisation d'infrastructures (pare-feu, VPN, back-up)</li>
-                        <li>• Scripting avec PowerShell et Bash</li>
-                        <li>• Supervision et maintenance préventive (GLPI, Zabbix, HAProxy)</li>
+                        <li>• Administrateur systèmes et réseaux</li>
+                        <li>• Informaticien support et déploiement</li>
+                        <li>• Pilote d’exploitation</li>
+                        <li>• Support systèmes et réseaux</li>
                     </ul>
                 </div>
 
                 <div class="option-slam">
                     <h3 class="option-title">Option SLAM</h3>
                     <p class="option-description">
-                        Cette spécialisation se concentre sur la conception, le développement et la maintenance
-                        d'applications informatiques. Les étudiants apprendront à créer des logiciels sur-mesure en
-                        utilisant les dernières technologies et pratiques de développement..<br>
+                        L'option Solutions Logicielles et Applications Métiers forme des spécialistes des logiciels
+                        (rédaction d'un cahier des charges, formulation des besoins et spécifications, développement,
+                        intégration au sein de la société).
+
                     </p>
 
                     <ul class="competences-list-formation">
-                        <li>• Développement d'applications web</li>
-                        <li>• Cycle de vie, de la conception à la mise en production</li>
+                        <li>• Développement d'applications web / mobile</li>
                         <li>• Utilisation de frameworks et CMS</li>
                         <li>• Gestion de projet et méthodes agiles</li>
                         <li>• Gestion de versions avec Git</li>
-                        <li>• Développement mobile (Android, iOS)</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Section projet Page 5 -->
+    <section class="projet" id="projet">
+        <h1 class="txt-projet">Projet</h1>
+        <div class="projet-buttons">
+            <button class="projet-btn">PROFESSIONNEL</button>
+            <button class="projet-btn">ACADÉMIQUE</button>
+        </div>
+
+        <!-- Contenu professionnel (caché par défaut) -->
+        <div class="projet-content-professionnel" id="contentProfessionnel">
+            <div class="projet-grid">
+                <div class="projet-card">
+                    <div class="projet-card-header">
+                        <h3 class="projet-card-title">Conesys Europe</h3>
+                        <span class="projet-card-tech">Gestion de projet site marchand</span>
+                    </div>
+                    <p class="projet-card-description">
+                        Rédaction du cahier des charges fonctionnel pour un site marchand B2B dédié aux connecteurs non
+                        tournants,
+                        création d’un outil Excel VBA pour la décomposition produit et échanges réguliers avec le
+                        sous-traitant en charge du développement.
+                    </p>
+                    <div class="projet-card-links">
+                        <a href="Asset/Conesys Europe.pdf" target="_blank" class="projet-link">Rapport stage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu académique (caché par défaut) -->
+        <div class="projet-content-academique" id="contentAcademique">
+            <div class="projet-grid">
+                <div class="projet-card">
+                    <div class="projet-card-header">
+                        <h3 class="projet-card-title">Projet BTS - Portfolio</h3>
+                        <span class="projet-card-tech">HTML • CSS • JavaScript</span>
+                    </div>
+                    <p class="projet-card-description">
+                        Création de ce portfolio personnel avec animations CSS,
+                        responsive design et optimisation des performances.
+                    </p>
+                    <div class="projet-card-links">
+                        <a href="#" class="projet-link">Voir le projet</a>
+                        <a href="#" class="projet-link">Code source</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="picture-left">
+            <img src="Asset/flowers.png" alt="Projet" class="projet-img">
+        </div>
+        <div class="picture-right">
+            <img src="Asset/flowers.png" alt="Projet" class="projet-img">
+        </div>
+    </section>
+
+    <!-- Section contact Page 6 -->
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="contact-left">
                 <h1 class="contact-title">CONTACT</h1>
                 <p class="contact-description">
                     N'hésitez pas à me joindre via mes différentes réseaux sociaux ou via mon adresse mail dans le cadre
-                    d'un projet. Vous pouvez également m'envoyer un e-mail directement si vous préférez un contact plus
+                    d'un projet ou d'une recherche d'alternant. Vous pouvez également m'envoyer un e-mail directement si
+                    vous préférez un contact plus
                     classique. Je me ferai un plaisir de vous répondre dans les plus brefs délais.
                 </p>
                 <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/valentin-cemon-3a54a3165/" class="contact-btn">LINKEDIN</a>
-                    <a href="https://github.com/Valentincmn" class="contact-btn">GITHUB</a>
+                    <a href="https://www.linkedin.com/in/valentin-cemon-3a54a3165/" target="_blank"
+                        class="contact-btn">LINKEDIN</a>
+                    <a href="https://github.com/Valentincmn" target="_blank" class="contact-btn">GITHUB</a>
                     <a href="mailto:valentincmn@outlook.com" class="contact-btn">MAIL</a>
-                    <a href="Asset/cemon-valentin-cv.pdf" class="contact-btn">Mon CV</a>
+                    <a href="Asset/cemon-valentin-cv.pdf" target="_blank" class="contact-btn">Mon CV</a>
                 </div>
             </div>
             <div class="contact-right">

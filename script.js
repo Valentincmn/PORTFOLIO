@@ -175,4 +175,69 @@ class Loader {
 // Initialiser le loader dès que possible
 new Loader();
 
+// Gestion des boutons de projet
+document.addEventListener('DOMContentLoaded', function () {
+    const projetButtons = document.querySelectorAll('.projet-btn');
+    const pictureLeft = document.querySelector('.picture-left');
+    const pictureRight = document.querySelector('.picture-right');
+    const projetButtonsContainer = document.querySelector('.projet-buttons');
+    const contentProfessionnel = document.getElementById('contentProfessionnel');
+    const contentAcademique = document.getElementById('contentAcademique');
+
+    projetButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const buttonText = this.textContent.trim();
+
+            if (buttonText === 'PROFESSIONNEL') {
+                // Repositionner les boutons vers le haut
+                projetButtonsContainer.classList.add('buttons-top');
+
+                // Marquer le bouton actif
+                this.classList.add('active');
+
+                // Retirer l'état actif de l'autre bouton
+                projetButtons.forEach(btn => {
+                    if (btn !== this) {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Faire disparaître les images
+                pictureLeft.classList.add('fade-out');
+                pictureRight.classList.add('fade-out');
+
+                // Afficher le contenu professionnel et cacher l'académique
+                setTimeout(() => {
+                    contentProfessionnel.classList.add('show-content');
+                    contentAcademique.classList.remove('show-content');
+                }, 400);
+
+            } else if (buttonText === 'ACADÉMIQUE') {
+                // Repositionner les boutons vers le haut
+                projetButtonsContainer.classList.add('buttons-top');
+
+                // Marquer le bouton actif
+                this.classList.add('active');
+
+                // Retirer l'état actif de l'autre bouton
+                projetButtons.forEach(btn => {
+                    if (btn !== this) {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Faire disparaître les images
+                pictureLeft.classList.add('fade-out');
+                pictureRight.classList.add('fade-out');
+
+                // Afficher le contenu académique et cacher le professionnel
+                setTimeout(() => {
+                    contentAcademique.classList.add('show-content');
+                    contentProfessionnel.classList.remove('show-content');
+                }, 400);
+            }
+        });
+    });
+});
+
 
