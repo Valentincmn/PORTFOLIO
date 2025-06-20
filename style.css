@@ -789,6 +789,7 @@ header {
     outline: none;
     transition: border-color 0.3s ease;
     text-transform: uppercase;
+    cursor: none;
 }
 
 .contact-form input::placeholder,
@@ -817,6 +818,7 @@ header {
     padding: 1rem 2rem;
     margin-top: 1rem;
     transition: all 0.3s ease;
+    cursor: none;
 }
 
 .form-submit:hover {
