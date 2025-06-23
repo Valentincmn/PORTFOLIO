@@ -201,25 +201,106 @@ header {
     height: 100vh;
 }
 
-.about-left {
-    margin-left: 5%;
-    color: white;
+.about-content {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-    padding-top: 8rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0 5%;
+    padding-top: 12rem;
+    gap: 4rem;
 }
 
-.competences-title {
-    margin-bottom: 2.5rem;
-    font-size: 0.875rem;
+.about-left {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    min-width: 28rem;
 }
 
 .competences-list {
     display: flex;
-    flex-direction: row;
-    gap: 3rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: max(20rem, 30vw);
+}
+
+.competence-item {
+    margin-bottom: 1rem;
+}
+
+.competence-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.competence-name {
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.competence-percent {
+    font-size: 0.7rem;
+    opacity: 0.8;
+    font-family: "Fragment Mono", sans-serif;
+}
+
+.competence-bar {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 1px;
+    overflow: hidden;
+    position: relative;
+}
+
+.competence-progress {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+    border-radius: 1px;
+    width: 0%;
+    transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.competence-progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.competence-progress.animate {
+    animation: progressFill 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes progressFill {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: var(--target-width);
+    }
 }
 
 .picture-flex {
@@ -227,6 +308,7 @@ header {
     justify-content: center;
     align-items: flex-end;
     gap: 2.125rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
     width: 100%;
     position: static;
@@ -245,10 +327,7 @@ header {
 .about-right {
     max-width: 38rem;
     letter-spacing: 0.07em;
-    margin: 0 2rem;
-    position: absolute;
-    top: 12rem;
-    right: 2rem;
+    flex: 1;
 }
 
 /* Images du portfolio - style commun */
@@ -387,14 +466,14 @@ header {
 
 /* Style de la Page 4 - Formation */
 .formation {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background: black;
     position: relative;
     overflow-y: auto;
     color: white;
     font-family: "Fragment Mono", sans-serif;
-    font-size: 12px;
+    font-size: clamp(10px, 1.5vw, 12px);
     line-height: 1.4;
     display: flex;
 }
@@ -431,7 +510,7 @@ header {
     position: absolute;
     top: 12vh;
     left: 5%;
-    font-size: 14px;
+    font-size: clamp(12px, 2vw, 14px);
     z-index: 10;
     text-transform: uppercase;
 }
@@ -439,33 +518,34 @@ header {
 .formation-content {
     position: relative;
     z-index: 5;
-    padding: 8rem 5% 4rem 5%;
-    max-width: 1200px;
+    padding: clamp(6rem, 12vh, 8rem) clamp(3%, 5vw, 5%) clamp(3rem, 6vh, 4rem) clamp(3%, 5vw, 5%);
+    max-width: clamp(800px, 90vw, 1200px);
     margin: 0 auto;
 }
 
 .formation-subtitle {
     text-align: center;
-    font-size: 16px;
+    font-size: clamp(14px, 2.5vw, 16px);
     font-weight: normal;
-    margin-bottom: 3rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
     text-transform: uppercase;
 }
 
 .formation-intro {
     text-align: center;
-    max-width: 800px;
-    margin: 0 auto 4rem auto;
-    font-size: 14px;
+    max-width: clamp(600px, 80vw, 800px);
+    margin: 0 auto clamp(3rem, 5vw, 4rem) auto;
+    font-size: clamp(12px, 2vw, 14px);
     line-height: 1.6;
     text-transform: uppercase;
 }
 
 .formation-options {
     display: flex;
-    gap: 4rem;
+    gap: clamp(2rem, 5vw, 4rem);
     align-items: flex-start;
     position: relative;
+    flex-wrap: wrap;
 }
 
 .formation-options::before {
@@ -482,21 +562,22 @@ header {
 .option-sisr,
 .option-slam {
     flex: 1;
-    min-height: 400px;
+    min-width: clamp(250px, 40vw, 400px);
+    min-height: clamp(300px, 50vh, 400px);
     text-transform: uppercase;
 }
 
 .option-title {
-    font-size: 14px;
+    font-size: clamp(12px, 2vw, 14px);
     font-weight: bold;
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
     text-transform: uppercase;
 }
 
 .option-description {
-    font-size: 14px;
+    font-size: clamp(11px, 1.8vw, 14px);
     line-height: 1.5;
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
 }
 
 .competences-list-formation {
@@ -506,7 +587,7 @@ header {
 }
 
 .competences-list-formation li {
-    font-size: 14px;
+    font-size: clamp(11px, 1.8vw, 14px);
     line-height: 1.6;
     margin-bottom: 0.5rem;
 }

@@ -175,6 +175,41 @@ class Loader {
 // Initialiser le loader dès que possible
 new Loader();
 
+// Animation des barres de compétences
+function animateSkillBars() {
+    const skillBars = document.querySelectorAll('.competence-progress');
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const aboutSection = entry.target;
+                const progressBars = aboutSection.querySelectorAll('.competence-progress');
+
+                progressBars.forEach((bar, index) => {
+                    const percent = bar.getAttribute('data-percent');
+                    setTimeout(() => {
+                        bar.style.width = percent + '%';
+                    }, index * 200); // Délai progressif pour chaque barre
+                });
+
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const aboutSection = document.querySelector('.about');
+    if (aboutSection) {
+        observer.observe(aboutSection);
+    }
+}
+
+// Initialiser l'animation des compétences
+document.addEventListener('DOMContentLoaded', animateSkillBars);
+
 // Gestion des boutons de projet
 document.addEventListener('DOMContentLoaded', function () {
     const projetButtons = document.querySelectorAll('.projet-btn');
