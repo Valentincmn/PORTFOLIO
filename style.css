@@ -500,7 +500,7 @@ header {
     overflow: hidden;
     color: white;
     font-family: "Fragment Mono", sans-serif;
-    font-size: clamp(10px, 1.5vw, 12px);
+    font-size: clamp(0.625rem, 1.5vw, 0.75rem);
     line-height: 1.4;
     display: flex;
 }
@@ -556,7 +556,7 @@ header {
 
 .formation-subtitle {
     text-align: center;
-    font-size: clamp(14px, 2.5vw, 16px);
+    font-size: clamp(1rem, 2.8vw, 1.125rem);
     font-weight: normal;
     margin-bottom: 1.5rem;
     text-transform: uppercase;
@@ -566,7 +566,7 @@ header {
     text-align: center;
     max-width: 700px;
     margin: 0 auto 2rem auto;
-    font-size: clamp(11px, 1.8vw, 13px);
+    font-size: clamp(0.8125rem, 2vw, 0.9375rem);
     line-height: 1.4;
     text-transform: uppercase;
 }
@@ -589,14 +589,14 @@ header {
 }
 
 .option-title {
-    font-size: clamp(12px, 2vw, 14px);
+    font-size: clamp(0.875rem, 2.2vw, 1rem);
     font-weight: bold;
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
 .option-description {
-    font-size: clamp(10px, 1.6vw, 12px);
+    font-size: clamp(0.75rem, 1.8vw, 0.875rem);
     line-height: 1.4;
     margin-bottom: 1rem;
 }
@@ -608,9 +608,9 @@ header {
 }
 
 .competences-list-formation li {
-    font-size: clamp(9px, 1.4vw, 11px);
+    font-size: clamp(0.6875rem, 1.6vw, 0.8125rem);
     line-height: 1.4;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.4rem;
 }
 
 /* ------------------- PAGE 5 : PROJET ------------------- */
