@@ -464,6 +464,33 @@ header {
     font-size: 14px;
 }
 
+/* Section Tableau de Synthèse */
+.synthese-section {
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.synthese-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 0.6rem;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-family: "Fragment Mono", sans-serif;
+    display: inline-block;
+    letter-spacing: 0.05em;
+}
+
+.synthese-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
 /* Style de la Page 4 - Formation */
 .formation {
     min-height: 100vh;
