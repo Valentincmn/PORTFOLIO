@@ -493,11 +493,11 @@ header {
 
 /* Style de la Page 4 - Formation */
 .formation {
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     background: black;
     position: relative;
-    overflow-y: auto;
+    overflow: hidden;
     color: white;
     font-family: "Fragment Mono", sans-serif;
     font-size: clamp(10px, 1.5vw, 12px);
@@ -545,66 +545,60 @@ header {
 .formation-content {
     position: relative;
     z-index: 5;
-    padding: clamp(6rem, 12vh, 8rem) clamp(3%, 5vw, 5%) clamp(3rem, 6vh, 4rem) clamp(3%, 5vw, 5%);
-    max-width: clamp(800px, 90vw, 1200px);
+    padding: 8vh 5% 4vh 5%;
+    max-width: 1200px;
     margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .formation-subtitle {
     text-align: center;
     font-size: clamp(14px, 2.5vw, 16px);
     font-weight: normal;
-    margin-bottom: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
 }
 
 .formation-intro {
     text-align: center;
-    max-width: clamp(600px, 80vw, 800px);
-    margin: 0 auto clamp(3rem, 5vw, 4rem) auto;
-    font-size: clamp(12px, 2vw, 14px);
-    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    font-size: clamp(11px, 1.8vw, 13px);
+    line-height: 1.4;
     text-transform: uppercase;
 }
 
 .formation-options {
-    display: flex;
-    gap: clamp(2rem, 5vw, 4rem);
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
     position: relative;
-    flex-wrap: wrap;
-}
-
-.formation-options::before {
-    content: '';
-    position: absolute;
-    top: -2rem;
-    left: -100vw;
-    right: -100vw;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.132);
-    z-index: -1;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
 }
 
 .option-sisr,
 .option-slam {
-    flex: 1;
-    min-width: clamp(250px, 40vw, 400px);
-    min-height: clamp(300px, 50vh, 400px);
     text-transform: uppercase;
 }
 
 .option-title {
     font-size: clamp(12px, 2vw, 14px);
     font-weight: bold;
-    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
 .option-description {
-    font-size: clamp(11px, 1.8vw, 14px);
-    line-height: 1.5;
-    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(10px, 1.6vw, 12px);
+    line-height: 1.4;
+    margin-bottom: 1rem;
 }
 
 .competences-list-formation {
@@ -614,9 +608,9 @@ header {
 }
 
 .competences-list-formation li {
-    font-size: clamp(11px, 1.8vw, 14px);
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
+    font-size: clamp(9px, 1.4vw, 11px);
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
 }
 
 /* ------------------- PAGE 5 : PROJET ------------------- */
@@ -941,6 +935,7 @@ header {
     position: absolute;
     bottom: 2rem;
     right: 2rem;
+    z-index: 10;
 }
 
 .footer-icons {
