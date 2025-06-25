@@ -370,9 +370,6 @@ header {
     width: 100%;
     background-color: black;
     color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-image: url('Asset/Parcours.jpg');
     background-size: cover;
     background-position: center;
@@ -510,9 +507,6 @@ header {
 .video-right {
     flex: 1 1 0;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     position: absolute;
     width: 50%;
@@ -623,9 +617,6 @@ header {
     font-family: "Fragment Mono", sans-serif;
     position: relative;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .txt-projet {
@@ -640,6 +631,10 @@ header {
     gap: 20rem;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .projet-btn {
@@ -728,7 +723,6 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-
 }
 
 .projet-card {
@@ -930,7 +924,6 @@ header {
     background: rgba(255, 255, 255, 0.1);
     border-color: white;
 }
-
 
 /* Footer avec icônes */
 .footer {
