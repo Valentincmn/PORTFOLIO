@@ -629,8 +629,6 @@ header {
 .projet-buttons {
     display: flex;
     gap: 20rem;
-    justify-content: center;
-    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -835,7 +833,6 @@ header {
     margin-top: 1rem;
     margin-bottom: 3rem;
     max-width: 37.5rem;
-    padding-left: 0;
     text-align: justify;
 }
 
