@@ -45,15 +45,14 @@
             <li><a href="#professional" draggable="false">P</a></li>
             <li><a href="#formation" draggable="false">F</a></li>
             <li><a href="#projet" draggable="false">PR</a></li>
-            <li><a href="#contact" draggable="false">C</a></li>
           </ul>
         </nav>
       </header>
 
       <!-- Titre principal du portfolio -->
       <h1 class="titre">
-        My <br />
-        <span>Portfolio</span>
+        Valentin <br />
+        <span>CEMON</span>
       </h1>
       <!-- Indicateur de défilement -->
       <div class="scroll">
@@ -66,56 +65,13 @@
       <h2 class="qui-suis-je">qui-suis-je?</h2>
       <div class="about-flex">
         <div class="about-content">
-          <div class="about-left">
-            <div class="competences-block">
-              <div class="competences-list">
-                <div class="competence-item">
-                  <div class="competence-header">
-                    <span class="competence-name">HTML</span>
-                    <span class="competence-percent">60%</span>
-                  </div>
-                  <div class="competence-bar">
-                    <div class="competence-progress" data-percent="60"></div>
-                  </div>
-                </div>
-                <div class="competence-item">
-                  <div class="competence-header">
-                    <span class="competence-name">CSS</span>
-                    <span class="competence-percent">60%</span>
-                  </div>
-                  <div class="competence-bar">
-                    <div class="competence-progress" data-percent="60"></div>
-                  </div>
-                </div>
-                <div class="competence-item">
-                  <div class="competence-header">
-                    <span class="competence-name">JAVASCRIPT</span>
-                    <span class="competence-percent">40%</span>
-                  </div>
-                  <div class="competence-bar">
-                    <div class="competence-progress" data-percent="40"></div>
-                  </div>
-                </div>
-                <div class="competence-item">
-                  <div class="competence-header">
-                    <span class="competence-name">PHP</span>
-                    <span class="competence-percent">30%</span>
-                  </div>
-                  <div class="competence-bar">
-                    <div class="competence-progress" data-percent="30"></div>
-                  </div>
-                </div>
-                <div class="competence-item">
-                  <div class="competence-header">
-                    <span class="competence-name">REACT</span>
-                    <span class="competence-percent">20%</span>
-                  </div>
-                  <div class="competence-bar">
-                    <div class="competence-progress" data-percent="20"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="about-photo">
+            <img
+              class="portfolio-img"
+              src="Asset/me.jpg"
+              alt="Valentin Cemon"
+              draggable="false"
+            />
           </div>
           <div class="about-right">
             JE M'APPELLE VALENTIN CEMON, J'AI 27 ANS ET JE SUIS EN RECONVERSION
@@ -141,36 +97,9 @@
             </div>
           </div>
         </div>
-        <div class="picture-flex">
-          <img
-            class="portfolio-img"
-            src="Asset/me.jpg"
-            alt=""
-            draggable="false"
-          />
-          <img
-            class="portfolio-img"
-            src="Asset/londres.jpeg"
-            alt=""
-            draggable="false"
-          />
-          <img
-            class="portfolio-img"
-            src="Asset/vers.jpeg"
-            alt=""
-            draggable="false"
-          />
-          <img
-            class="portfolio-img"
-            src="Asset/lv.jpg"
-            alt=""
-            draggable="false"
-          />
-        </div>
       </div>
     </section>
-
-    <!-- Section about Page 3 -->
+    <!-- Section parcours Page 3 -->
     <section class="professional" id="professional">
       <h1 class="txt-parcours">Parcours</h1>
 
@@ -191,7 +120,7 @@
       <div class="para center">
         BTS MUC<br />
         CFA Affida, La Verrière (2019-2020)<br />
-        Management des Unités Commercial
+        Management des Unités Commerciales
       </div>
 
       <div class="para right">
@@ -203,7 +132,7 @@
         <!-- Bouton Tableau de Synthèse -->
         <div class="synthese-section">
           <a
-            href="Asset/8-1%20-%20BTS%20SIO%20-%202025%20-%20Tableau%20de%20synthese.pdf"
+            href="Asset/8-1 - BTS SIO - 2025 - Tableau de synthese.pdf"
             target="_blank"
             class="synthese-btn"
             draggable="false"
@@ -213,8 +142,7 @@
         </div>
       </div>
     </section>
-
-    <!-- Section about Page 4 -->
+    <!-- Section BTS Page 4 -->
     <section class="formation" id="formation">
       <h1 class="txt-formation">Formation</h1>
 
@@ -282,6 +210,7 @@
       </div>
     </section>
 
+
     <!-- Section projet Page 5 -->
     <section class="projet" id="projet">
       <h1 class="txt-projet">Projet</h1>
@@ -308,11 +237,20 @@
             </p>
             <div class="projet-card-links">
               <a
-                href="Asset/Conesys%20Europe.pdf"
+                href="Asset/Conesys_Europe_CDC.pdf"
                 target="_blank"
                 class="projet-link"
                 draggable="false"
                 >Rapport stage</a
+              >
+              <a
+                href="#"
+                class="projet-link projet-photo-btn"
+                data-photo-src="Asset/Capture d’écran 2026-05-01 à 16.34.13.png"
+                data-photo-alt="Aperçu du projet Conesys Europe"
+                data-photo-title="Trello Conesys Europe - Photo"
+                draggable="false"
+                >Voir photo</a
               >
             </div>
           </div>
@@ -333,49 +271,109 @@
         <div class="projet-grid">
           <div class="projet-card">
             <div class="projet-card-header">
-              <h3 class="projet-card-title">The Movie App</h3>
-              <span class="projet-card-tech"
-                >HTML • CSS • JavaScript • API</span
-              >
+              <h3 class="projet-card-title">France Import Auto (AP1)</h3>
             </div>
             <p class="projet-card-description">
-              Création d'une application dynamique de recherche de films avec
-              l'API The Movie.
+              Dans le cadre de ma première année de BTS SIO, j’ai réalisé avec
+              un groupe de 4 personnes la conception intégrale d’une entreprise
+              fictive baptisée France Import Auto.
+              <br /><br />L’objectif de cet atelier (AP1) était de nous
+              confronter à la réalité du monde professionnel en simulant le
+              lancement d’une activité commerciale. <br /><br />
+              Notre société s’est spécialisée dans le courtage automobile, avec
+              pour mission d’acheter des véhicules de qualité sur le marché
+              allemand pour les importer et les livrer à des clients résidant en
+              France. <br /><br />La création d’une entreprise ne se limite pas
+              à son activité commerciale ; elle nécessite une base
+              administrative et stratégique solide. <br /><br />En équipe, nous
+              avons dû structurer les piliers suivants : analyse du marché et
+              concurrence (étude des acteurs existants et identification de
+              notre valeur ajoutée : prix, garanties, rapidité),
+              <br /><br />stratégie de communication (définition de l’identité
+              visuelle et des canaux pour toucher nos futurs clients : web,
+              réseaux sociaux), <br /><br />gestion administrative
+              (établissement des statuts de l’entreprise et organisation des
+              processus de vente internationaux).
             </p>
             <div class="projet-card-links">
               <a
-                href="https://vcmnmovie.netlify.app/"
+                href="Asset/Présentation Stratégie de Communication Moderne.pdf"
                 target="_blank"
                 class="projet-link"
                 draggable="false"
-                >Voir le projet</a
+                >Voir le document</a
               >
               <a
-                href="https://github.com/Valentincmn/The-Movie-App.git"
-                class="projet-link"
+                href="#"
+                class="projet-link projet-photo-btn"
+                data-photo-src="Asset/Trello_AP1.png"
+                data-photo-alt="Aperçu du projet France Import Auto"
+                data-photo-title="France Import Auto (AP1) - Photo"
                 draggable="false"
-                >Code source</a
+                >Voir photo</a
               >
             </div>
           </div>
           <div class="projet-card">
             <div class="projet-card-header">
-              <h3 class="projet-card-title">Projet REACT</h3>
-              <span class="projet-card-tech">React</span>
+              <h3 class="projet-card-title">
+                Compréhension liée à la cybersécurité
+              </h3>
+              <span class="projet-card-tech">Cybersécurité</span>
             </div>
             <p class="projet-card-description">
-              Création d'un site multi-utilitaires avec React.
+              La cybersécurité n’est plus uniquement du ressort des
+              administrateurs systèmes ou des experts en sécurité: elle
+              constitue aujourd’hui une responsabilité essentielle pour les
+              développeurs. En effet, chaque application développée peut
+              représenter un point d’entrée potentiel pour des attaques si les
+              bonnes pratiques de sécurité ne sont pas intégrées dès la
+              conception.
+              <br /><br />
+              Dans ce contexte, le développeur joue un rôle clé dans la
+              protection des données et la fiabilité des applications. Il doit
+              être en mesure d’anticiper les vulnérabilités, de sécuriser les
+              échanges et de garantir une gestion rigoureuse des accès. Ainsi,
+              la prise en compte de la cybersécurité dès les premières étapes du
+              développement s’inscrit dans une démarche globale de qualité
+              logicielle, visant à concevoir des applications à la fois
+              fonctionnelles et sécurisées.
             </p>
             <div class="projet-card-links">
-              <a href="#" class="projet-link" draggable="false"
-                >Voir le projet</a
-              >
               <a
-                href="https://github.com/Valentincmn/REACT.git"
+                href="Asset/Attaque XSS.pdf"
                 target="_blank"
                 class="projet-link"
                 draggable="false"
-                >Code source</a
+                >Document Attaque XSS</a
+              >
+              <a
+                href="Asset/Attaque CRSF.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Document Attaque CSRF</a
+              >
+              <a
+                href="Asset/DICP.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Document Principes DICP</a
+              >
+              <a
+                href="Asset/La CNIL, le RGPD et les États européens.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Document CNIL et RGPD</a
+              >
+              <a
+                href="Asset/Cryptographie (Chiffrement, Hachage).pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Document Chiffrement et hachage des données</a
               >
             </div>
           </div>
@@ -392,7 +390,7 @@
             </p>
             <div class="projet-card-links">
               <a
-                href="https://vcmnpokedex.netlify.app"
+                href="https://pokedex-valentincemon.vercel.app/"
                 target="_blank"
                 class="projet-link"
                 draggable="false"
@@ -401,6 +399,121 @@
               >
               <a
                 href="https://github.com/Valentincmn/Pokedex.git"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Code source</a
+              >
+              <a
+                href="Asset/Pokedex.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Voir le document</a
+              >
+            </div>
+          </div>
+          <div class="projet-card">
+            <div class="projet-card-header">
+              <h3 class="projet-card-title">Projet REACT</h3>
+              <span class="projet-card-tech"
+                >React • Vite • React Router</span
+              >
+            </div>
+            <p class="projet-card-description">
+              Application web modulaire avec navigation (React Router) :
+              plusieurs ateliers (quiz, films, todo, géo-quiz, etc.) et un
+              module musique branché sur l’API iTunes (albums, extraits audio,
+              playlist).
+            </p>
+            <div class="projet-card-links">
+              <a
+                href="https://valentincemon.vercel.app/"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Voir le projet</a
+              >
+              <a
+                href="https://github.com/Valentincmn/REACT.git"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Code source</a
+              >
+              <a
+                href="Asset/React.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Voir le document</a
+              >
+            </div>
+          </div>
+          <div class="projet-card">
+            <div class="projet-card-header">
+              <h3 class="projet-card-title">Todolist React Native</h3>
+              <span class="projet-card-tech"
+                >React Native • Expo</span
+              >
+            </div>
+            <p class="projet-card-description">
+              Application mobile de gestion de tâches développée avec React
+              Native et Expo : création et affichage des todos, organisation en
+              composants réutilisables (dossier src/components), prise
+              en charge Android et iOS via les scripts Expo.
+            </p>
+            <div class="projet-card-links">
+              <a
+                href="#"
+                class="projet-link projet-photo-btn"
+                data-photo-gallery="Asset/Connexion.png|Asset/Inscription.png|Asset/mesTaches.png|Asset/profile.png"
+                data-photo-gallery-labels="Connexion|Inscription|Mes tâches|Profil"
+                data-photo-title="Todolist React Native"
+                data-photo-alt="Captures de l’application Todolist React Native"
+                draggable="false"
+                >Voir photo</a
+              >
+              <a
+                href="https://github.com/Valentincmn/Todolist_react-native"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Code source</a
+              >
+              <a
+                href="Asset/Todolist_expo.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Voir le document</a
+              >
+            </div>
+          </div>
+          <div class="projet-card">
+            <div class="projet-card-header">
+              <h3 class="projet-card-title">Libraibook</h3>
+              <span class="projet-card-tech"
+                >PHP • CSS • JavaScript</span
+              >
+            </div>
+            <p class="projet-card-description">
+              Développement d'une application web BOOKSHOP en PHP avec une
+              architecture modulaire (ACCUEIL, COMPTE, CONNEXION, INSCRIPTION,
+              MESLIVRES). Le projet intègre la gestion des comptes
+              utilisateurs, l'authentification, l'affichage des livres et des
+              scripts JavaScript côté client.
+            </p>
+            <div class="projet-card-links">
+              <a
+                href="Asset/MANUEL%20D%27UTILISATION%20LIBRAIBOOK.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Voir le document</a
+              >
+              <a
+                href="https://github.com/Valentincmn/BOOKSHOP"
                 target="_blank"
                 class="projet-link"
                 draggable="false"
@@ -426,6 +539,37 @@
               >
             </div>
           </div>
+          <div class="projet-card">
+            <div class="projet-card-header">
+              <h3 class="projet-card-title">Projet E6 Event-manager</h3>
+              <span class="projet-card-tech"
+                >Symfony Backend • React Frontend • MySQL</span
+              >
+            </div>
+            <p class="projet-card-description">
+              Création d'un site de gestion d'événements avec Symfony (Backend)
+              et React (Frontend) et MySQL.
+            </p>
+            <div class="projet-card-links">
+              <a
+                href="#"
+                class="projet-link projet-photo-btn"
+                data-photo-gallery="Asset/ConnexionEvent.png|Asset/Home.png|Asset/Calendrier.png|Asset/Ajout_Evènement.png|Asset/Information_évènement.png"
+                data-photo-gallery-labels="Connexion|Accueil|Calendrier|Ajout événement|Information événement"
+                data-photo-title="Projet E6 Event-manager"
+                data-photo-alt="Captures du projet Event-manager"
+                draggable="false"
+                >Voir photo</a
+              >
+              <a
+                href="Asset/Cahier des charges du projet.pdf"
+                target="_blank"
+                class="projet-link"
+                draggable="false"
+                >Voir le document</a
+              >
+            </div>
+          </div>
         </div>
       </div>
 
@@ -437,110 +581,85 @@
       </div>
     </section>
 
-    <!-- Section contact Page 6 -->
-    <section class="contact" id="contact">
-      <div class="contact-container">
-        <div class="contact-left">
-          <h1 class="contact-title">CONTACT</h1>
-          <p class="contact-description">
-            N'hésitez pas à me joindre via mes différents réseaux sociaux ou via
-            mon adresse mail dans le cadre d'un projet ou d'une recherche
-            d'alternant. Vous pouvez également m'envoyer un e-mail directement
-            si vous préférez un contact plus classique. Je me ferai un plaisir
-            de vous répondre dans les plus brefs délais.
-          </p>
-
-          <!-- Formulaire de contact -->
-          <form class="contact-form" id="contactForm">
-            <div class="form-row">
-              <div class="form-group">
-                <input
-                  type="text"
-                  id="nom"
-                  name="nom"
-                  placeholder="Nom *"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email *"
-                  required
-                />
-              </div>
-            </div>
-            <div class="form-group">
-              <input
-                type="text"
-                id="sujet"
-                name="sujet"
-                placeholder="Sujet *"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <textarea
-                id="message"
-                name="message"
-                placeholder="Votre message *"
-                rows="5"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="form-submit">ENVOYER</button>
-          </form>
+    <div class="projet-modal" id="projetModal" aria-hidden="true">
+      <div class="projet-modal-backdrop" data-close-modal></div>
+      <div class="projet-modal-content" role="dialog" aria-modal="true">
+        <button
+          type="button"
+          class="projet-modal-close"
+          id="projetModalClose"
+          aria-label="Fermer la fenêtre"
+        >
+          ×
+        </button>
+        <h3 class="projet-modal-title" id="projetModalTitle"></h3>
+        <div class="projet-modal-image-wrap">
+          <img class="projet-modal-image" id="projetModalImage" alt="" />
+          <div class="projet-modal-gallery" id="projetModalGallery" hidden>
+            <button
+              type="button"
+              class="projet-modal-gallery-btn"
+              id="projetModalPhotoPrev"
+              aria-label="Photo précédente"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="projet-modal-gallery-btn"
+              id="projetModalPhotoNext"
+              aria-label="Photo suivante"
+            >
+              ›
+            </button>
+          </div>
         </div>
-        <div class="contact-right">
-          <img src="Asset/contact.JPG" alt="Portrait" class="contact-image" />
-        </div>
+        <p class="projet-modal-text" id="projetModalText"></p>
       </div>
-      <!-- Footer avec icônes (uniquement sur page contact) -->
-      <footer class="footer">
-        <div class="footer-icons">
-          <a
-            href="https://github.com/Valentincmn"
-            target="_blank"
-            class="footer-icon"
-            title="GitHub"
-            draggable="false"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path
-                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
-              />
-            </svg>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/valentin-cemon-3a54a3165/"
-            target="_blank"
-            class="footer-icon"
-            title="LinkedIn"
-            draggable="false"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-              />
-            </svg>
-          </a>
-          <a
-            href="mailto:valentincmn@outlook.com"
-            class="footer-icon"
-            title="Email"
-            draggable="false"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-              <path
-                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.71L12 10.09l9.654-6.269h.71c.904 0 1.636.732 1.636 1.636z"
-              />
-            </svg>
-          </a>
-        </div>
-      </footer>
-    </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-icons">
+        <a
+          href="https://github.com/Valentincmn"
+          target="_blank"
+          class="footer-icon"
+          title="GitHub"
+          draggable="false"
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/valentin-cemon-3a54a3165/"
+          target="_blank"
+          class="footer-icon"
+          title="LinkedIn"
+          draggable="false"
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+        </a>
+        <a
+          href="mailto:valentincmn@outlook.com"
+          class="footer-icon"
+          title="Email"
+          draggable="false"
+        >
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path
+              d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-.904.732-1.636 1.636-1.636h.71L12 10.09l9.654-6.269h.71c.904 0 1.636.732 1.636 1.636z"
+            />
+          </svg>
+        </a>
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>

@@ -150,6 +150,12 @@ header {
   animation: fadeInZoom 7s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+.titre span {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
 @keyframes fadeInZoom {
   from {
     opacity: 0;
@@ -205,126 +211,16 @@ header {
 
 .about-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   margin: 0 5%;
   padding-top: 12rem;
-  gap: 4rem;
+  gap: 2rem;
 }
 
-.about-left {
-  display: flex;
-  flex-direction: column;
+.about-photo {
   flex: 0 0 auto;
-  min-width: 28rem;
-}
-
-.competences-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: max(20rem, 30vw);
-}
-
-.competence-item {
-  margin-bottom: 1rem;
-}
-
-.competence-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.competence-name {
-  font-size: 0.8rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.competence-percent {
-  font-size: 0.7rem;
-  opacity: 0.8;
-  font-family: "Fragment Mono", sans-serif;
-}
-
-.competence-bar {
-  width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1px;
-  overflow: hidden;
-  position: relative;
-}
-
-.competence-progress {
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.4) 100%
-  );
-  border-radius: 1px;
-  width: 0%;
-  transition: width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
-  overflow: hidden;
-}
-
-.competence-progress::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% {
-    left: -100%;
-  }
-
-  50%,
-  100% {
-    left: 100%;
-  }
-}
-
-.competence-progress.animate {
-  animation: progressFill 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-}
-
-@keyframes progressFill {
-  from {
-    width: 0%;
-  }
-
-  to {
-    width: var(--target-width);
-  }
-}
-
-.picture-flex {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  gap: 2.125rem;
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  width: 100%;
-  position: static;
-  flex-wrap: wrap;
-  text-align: center;
+  align-self: flex-start;
 }
 
 .qui-suis-je {
@@ -338,16 +234,18 @@ header {
 .about-right {
   max-width: 38rem;
   letter-spacing: 0.07em;
-  flex: 1;
+  flex: 0 1 auto;
+  margin-left: auto;
   text-align: justify;
 }
 
-/* Images du portfolio - style commun */
-.portfolio-img {
-  width: 12.875rem;
-  height: 15.125rem;
+/* Photo « qui suis-je » — à gauche, plus grande */
+.about-photo .portfolio-img {
+  width: min(25rem, 46vw);
+  height: min(30rem, 62vh);
   border-radius: 0.15625rem;
   object-fit: cover;
+  display: block;
 }
 
 /* Section CV */
@@ -784,6 +682,7 @@ header {
   display: flex;
   gap: 1rem;
   margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .projet-link {
@@ -803,142 +702,154 @@ header {
   border-color: white;
 }
 
-/* ------------------- PAGE 6 : CONTACT ------------------- */
-.contact {
-  height: 100vh;
+/* Sur académique + professionnel, le texte est affiché dans la modal au clic */
+#contentAcademique .projet-card-description,
+#contentProfessionnel .projet-card-description,
+#contentAcademique .projet-card-links,
+#contentProfessionnel .projet-card-links {
+  display: none;
+}
+
+#contentAcademique .projet-card,
+#contentProfessionnel .projet-card {
+  cursor: none;
+}
+
+/* Modal projet académique */
+.projet-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+}
+
+.projet-modal.open {
+  display: block;
+}
+
+.projet-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.projet-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 50rem);
+  background: rgba(16, 16, 16, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: #fff;
+  font-family: "Fragment Mono", sans-serif;
+}
+
+.projet-modal-close {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.6rem;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: none;
+}
+
+.projet-modal-title {
+  margin: 0 1.5rem 0.9rem 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.projet-modal-text {
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.82rem;
+  color: #d6d6d6;
+}
+
+.projet-modal-image-wrap {
+  position: relative;
   width: 100%;
-  background-color: black;
-  color: white;
+}
+
+.projet-modal-image {
+  display: none;
+  width: 100%;
+  max-height: 62vh;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.projet-modal-gallery {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.15rem;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.projet-modal-gallery[hidden] {
+  display: none !important;
+}
+
+.projet-modal-gallery-btn {
+  pointer-events: auto;
+  flex-shrink: 0;
+  width: 2.65rem;
+  height: 2.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1.65rem;
+  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Fragment Mono", sans-serif;
+  padding-bottom: 0.12rem;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
 }
 
-.contact-container {
+.projet-modal-gallery-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.projet-modal-gallery-btn:disabled {
+  opacity: 0.22;
+}
+
+.modal-links-container {
   display: flex;
-  width: 100%;
-  height: 100vh;
-  position: relative;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.contact-left {
-  padding: 0 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-  text-transform: uppercase;
-}
-
-.contact-title {
-  font-size: 6rem;
-  margin-top: 4rem;
-  margin-bottom: 1rem;
-  line-height: 0.8;
-}
-
-.contact-description {
-  font-size: 0.8rem;
-  line-height: 1.6;
-  margin-top: 1rem;
-  margin-bottom: 3rem;
-  max-width: 37.5rem;
-  text-align: justify;
-}
-
-.contact-right {
-  position: absolute;
-  right: 0;
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.contact-image {
-  height: 100vh;
-  width: 70%;
-  object-fit: cover;
-}
-
-/* Formulaire de contact */
-.contact-form {
-  margin: 3rem 0;
-  padding-left: 0;
-  max-width: 40rem;
-}
-
-.form-row {
-  display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.form-group {
-  flex: 1;
-  margin-bottom: 1.5rem;
-}
-
-.form-row .form-group {
-  margin-bottom: 0;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  font-family: "Fragment Mono", sans-serif;
-  font-size: 0.9rem;
-  padding: 1rem 0;
-  outline: none;
-  transition: border-color 0.3s ease;
-  text-transform: uppercase;
-  cursor: none;
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-bottom-color: white;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.form-submit {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  font-family: "Fragment Mono", sans-serif;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  padding: 1rem 2rem;
-  margin-top: 1rem;
-  transition: all 0.3s ease;
-  cursor: none;
-}
-
-.form-submit:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: white;
-}
-
-/* Footer avec icônes */
+.modal-links-container .projet-link {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+} /* Footer avec icônes */
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 2rem;
   right: 2rem;
-  z-index: 10;
+  z-index: 1000;
 }
 
 .footer-icons {

@@ -183,43 +183,6 @@ class Loader {
 // Initialiser le loader dès que possible
 new Loader();
 
-// Animation des barres de compétences
-function animateSkillBars() {
-  const skillBars = document.querySelectorAll(".competence-progress");
-  const observerOptions = {
-    threshold: 0.5,
-    rootMargin: "0px 0px -100px 0px",
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const aboutSection = entry.target;
-        const progressBars = aboutSection.querySelectorAll(
-          ".competence-progress",
-        );
-
-        progressBars.forEach((bar, index) => {
-          const percent = bar.getAttribute("data-percent");
-          setTimeout(() => {
-            bar.style.width = percent + "%";
-          }, index * 200); // Délai progressif pour chaque barre
-        });
-
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  const aboutSection = document.querySelector(".about");
-  if (aboutSection) {
-    observer.observe(aboutSection);
-  }
-}
-
-// Initialiser l'animation des compétences
-document.addEventListener("DOMContentLoaded", animateSkillBars);
-
 // Gestion des boutons de projet
 document.addEventListener("DOMContentLoaded", function () {
   const projetButtons = document.querySelectorAll(".projet-btn");
@@ -228,6 +191,232 @@ document.addEventListener("DOMContentLoaded", function () {
   const projetButtonsContainer = document.querySelector(".projet-buttons");
   const contentProfessionnel = document.getElementById("contentProfessionnel");
   const contentAcademique = document.getElementById("contentAcademique");
+  const academiqueCards = document.querySelectorAll(
+    "#contentAcademique .projet-card",
+  );
+  const professionnelCards = document.querySelectorAll(
+    "#contentProfessionnel .projet-card",
+  );
+  const projetModal = document.getElementById("projetModal");
+  const projetModalTitle = document.getElementById("projetModalTitle");
+  const projetModalText = document.getElementById("projetModalText");
+  const projetModalImage = document.getElementById("projetModalImage");
+  const projetModalGallery = document.getElementById("projetModalGallery");
+  const projetModalPhotoPrev = document.getElementById("projetModalPhotoPrev");
+  const projetModalPhotoNext = document.getElementById("projetModalPhotoNext");
+  const projetModalClose = document.getElementById("projetModalClose");
+
+  let photoGallerySources = [];
+  let photoGalleryLabels = [];
+  let photoGalleryTitleBase = "";
+  let photoGalleryDefaultAlt = "";
+  let photoGalleryIndex = 0;
+
+  const openProjetModal = (title, htmlText, cardElement = null) => {
+    if (!projetModal) return;
+    if (projetModalGallery) projetModalGallery.hidden = true;
+    projetModalTitle.textContent = title;
+    if (projetModalImage) {
+      projetModalImage.style.display = "none";
+      projetModalImage.removeAttribute("src");
+      projetModalImage.setAttribute("alt", "");
+    }
+    projetModalText.style.display = "block";
+
+    // Inclure les liens s'ils existent dans la card
+    let fullContent = htmlText;
+    if (cardElement) {
+      const linksContainer = cardElement.querySelector(".projet-card-links");
+      if (linksContainer) {
+        fullContent +=
+          "<div class='modal-links-container'>" +
+          linksContainer.innerHTML +
+          "</div>";
+      }
+    }
+
+    projetModalText.innerHTML = fullContent;
+    projetModal.classList.add("open");
+    projetModal.setAttribute("aria-hidden", "false");
+  };
+
+  const updatePhotoGalleryView = () => {
+    if (!projetModalImage || photoGallerySources.length === 0) return;
+    const src = photoGallerySources[photoGalleryIndex];
+    const label =
+      photoGalleryLabels[photoGalleryIndex] ||
+      `Image ${photoGalleryIndex + 1}`;
+    projetModalImage.setAttribute("src", src);
+    const altPart = photoGalleryDefaultAlt
+      ? `${photoGalleryDefaultAlt} — ${label}`
+      : label;
+    projetModalImage.setAttribute("alt", altPart);
+    projetModalTitle.textContent = `${photoGalleryTitleBase} — ${label} (${photoGalleryIndex + 1}/${photoGallerySources.length})`;
+    if (projetModalPhotoPrev) {
+      projetModalPhotoPrev.disabled = photoGalleryIndex <= 0;
+    }
+    if (projetModalPhotoNext) {
+      projetModalPhotoNext.disabled =
+        photoGalleryIndex >= photoGallerySources.length - 1;
+    }
+  };
+
+  const openProjetPhotoGallery = (
+    sources,
+    labels,
+    titleBase,
+    defaultAlt,
+  ) => {
+    if (!projetModal || !projetModalImage) return;
+    photoGallerySources = sources;
+    photoGalleryLabels =
+      labels.length >= sources.length
+        ? labels.slice(0, sources.length)
+        : sources.map((_, i) => labels[i] || `Image ${i + 1}`);
+    photoGalleryTitleBase = titleBase;
+    photoGalleryDefaultAlt = defaultAlt || "";
+    photoGalleryIndex = 0;
+    projetModalText.style.display = "none";
+    projetModalText.innerHTML = "";
+    if (projetModalGallery) projetModalGallery.hidden = false;
+    projetModalImage.style.display = "block";
+    updatePhotoGalleryView();
+    projetModal.classList.add("open");
+    projetModal.setAttribute("aria-hidden", "false");
+  };
+
+  const openProjetPhotoModal = (title, src, alt) => {
+    if (!projetModal || !projetModalImage) return;
+    if (projetModalGallery) projetModalGallery.hidden = true;
+    photoGallerySources = [];
+    projetModalTitle.textContent = title;
+    projetModalText.style.display = "none";
+    projetModalText.innerHTML = "";
+    projetModalImage.setAttribute("src", src);
+    projetModalImage.setAttribute("alt", alt || "");
+    projetModalImage.style.display = "block";
+    projetModal.classList.add("open");
+    projetModal.setAttribute("aria-hidden", "false");
+  };
+
+  const closeProjetModal = () => {
+    if (!projetModal) return;
+    projetModal.classList.remove("open");
+    projetModal.setAttribute("aria-hidden", "true");
+    if (projetModalGallery) projetModalGallery.hidden = true;
+    photoGallerySources = [];
+    if (projetModalImage) {
+      projetModalImage.style.display = "none";
+      projetModalImage.removeAttribute("src");
+    }
+    if (projetModalText) {
+      projetModalText.innerHTML = "";
+      projetModalText.style.display = "block";
+    }
+  };
+
+  projetModalPhotoPrev?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (photoGalleryIndex <= 0) return;
+    photoGalleryIndex -= 1;
+    updatePhotoGalleryView();
+  });
+
+  projetModalPhotoNext?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    if (photoGalleryIndex >= photoGallerySources.length - 1) return;
+    photoGalleryIndex += 1;
+    updatePhotoGalleryView();
+  });
+
+  /* Délégation : les boutons "Voir photo" sont aussi recopiés dans la modal (innerHTML des liens) */
+  document.addEventListener("click", (event) => {
+    const photoBtn = event.target.closest(".projet-photo-btn");
+    if (!photoBtn) return;
+    event.preventDefault();
+    event.stopPropagation();
+    const galleryRaw = photoBtn.getAttribute("data-photo-gallery");
+    const alt = photoBtn.getAttribute("data-photo-alt") || "";
+    const title =
+      photoBtn.getAttribute("data-photo-title") || "Aperçu du projet";
+    if (galleryRaw) {
+      const sources = galleryRaw
+        .split("|")
+        .map((s) => s.trim())
+        .filter(Boolean);
+      if (sources.length === 0) return;
+      if (sources.length === 1) {
+        openProjetPhotoModal(title, sources[0], alt);
+        return;
+      }
+      const labelsRaw =
+        photoBtn.getAttribute("data-photo-gallery-labels") || "";
+      const labels = labelsRaw.split("|").map((s) => s.trim());
+      openProjetPhotoGallery(sources, labels, title, alt);
+      return;
+    }
+    const src = photoBtn.getAttribute("data-photo-src");
+    if (!src) return;
+    openProjetPhotoModal(title, src, alt);
+  });
+
+  academiqueCards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      // Laisse les liens de la carte fonctionner normalement
+      if (event.target.closest("a")) return;
+
+      const title = card
+        .querySelector(".projet-card-title")
+        ?.textContent?.trim();
+      const description = card
+        .querySelector(".projet-card-description")
+        ?.innerHTML?.trim();
+
+      if (!title || !description) return;
+      openProjetModal(title, description, card);
+    });
+  });
+
+  professionnelCards.forEach((card) => {
+    card.addEventListener("click", (event) => {
+      if (event.target.closest("a")) return;
+
+      const title = card
+        .querySelector(".projet-card-title")
+        ?.textContent?.trim();
+      const description = card
+        .querySelector(".projet-card-description")
+        ?.innerHTML?.trim();
+
+      if (!title || !description) return;
+      openProjetModal(title, description, card);
+    });
+  });
+
+  projetModalClose?.addEventListener("click", closeProjetModal);
+  projetModal?.addEventListener("click", (event) => {
+    if (event.target.hasAttribute("data-close-modal")) {
+      closeProjetModal();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!projetModal?.classList.contains("open")) return;
+    if (event.key === "Escape") {
+      closeProjetModal();
+      return;
+    }
+    const galleryOpen =
+      projetModalGallery && !projetModalGallery.hidden && photoGallerySources.length > 1;
+    if (galleryOpen && event.key === "ArrowLeft") {
+      event.preventDefault();
+      projetModalPhotoPrev?.click();
+    }
+    if (galleryOpen && event.key === "ArrowRight") {
+      event.preventDefault();
+      projetModalPhotoNext?.click();
+    }
+  });
 
   projetButtons.forEach((button) => {
     button.addEventListener("click", function () {
@@ -255,6 +444,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           contentProfessionnel.classList.add("show-content");
           contentAcademique.classList.remove("show-content");
+          closeProjetModal();
         }, 400);
       } else if (buttonText === "ACADÉMIQUE") {
         // Repositionner les boutons vers le haut
@@ -278,6 +468,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           contentAcademique.classList.add("show-content");
           contentProfessionnel.classList.remove("show-content");
+          closeProjetModal();
         }, 400);
       }
     });
